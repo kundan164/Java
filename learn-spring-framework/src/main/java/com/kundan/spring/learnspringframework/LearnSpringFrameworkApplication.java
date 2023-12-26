@@ -6,14 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.kundan.spring.learnspringframework.enterprise.web.MyWebController;
 import com.kundan.spring.learnspringframework.game.GameRunner;
 import com.kundan.spring.learnspringframework.game.GamingConsole;
 import com.kundan.spring.learnspringframework.game.MarioGame;
 import com.kundan.spring.learnspringframework.game.PacmanGame;
 
 @SpringBootApplication
-//@ComponentScan("com.kundan.spring.learnspringframework")
-//@ComponentScan({"com.pack1","com.pack2"})
+// @ComponentScan("com.kundan.spring.learnspringframework")
+// @ComponentScan({"com.pack1","com.pack2"})
 public class LearnSpringFrameworkApplication {
 
 	public static void main(String[] args) {
@@ -27,6 +28,9 @@ public class LearnSpringFrameworkApplication {
 
 		GameRunner runner = context.getBean(GameRunner.class);
 		runner.run();
+
+		MyWebController controller = context.getBean(MyWebController.class);
+		System.out.println(controller.returnValueFromBusinessService());
 	}
 
 }
